@@ -9,7 +9,7 @@ export LC_ALL=C
 
 SIL_DIR="/home/jschneider/Proj_WaterIce/data/model_data/"
 WATER_FILE="/home/jschneider/Proj_WaterIce/data/nk_data_potapov/trans_water_150.lnk"
-OUTPUT_DIR="/home/jschneider/Proj_WaterIce/01_lab-model-comp/data_out"
+OUTPUT_DIR="/home/jschneider/Proj_WaterIce/01_lab-model-comp/data_out/dust_models/"
 
 OPTOOL="/home/jschneider/optool/optool"
 
@@ -109,7 +109,7 @@ XLIM=1000
 # Composition grid
 # =============================================================================
 
-# SILicate : total water mass ratios.
+# Silicate : total water mass ratios.
 RATIOS=(
     2.0
     2.5
@@ -118,6 +118,12 @@ RATIOS=(
     4.0
     4.5
     5.0
+    5.5
+    6.0
+    6.5
+    7.0
+    7.5
+    8.0
 )
 
 # Fraction of TOTAL water placed in the mantle.
@@ -372,7 +378,7 @@ for sil_file in "${sil_fileS[@]}"; do
             # -----------------------------------------------------------------
 
             model_name="rho_${sil_density}"\
-"_SIL_${sil_mf}"\
+"_sil_${sil_mf}"\
 "_waterCore_${water_core_mf}"\
 "_waterMantle_${water_mantle_mf}"\
 "_ratio_${ratio}to1"

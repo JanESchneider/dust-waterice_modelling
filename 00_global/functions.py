@@ -38,14 +38,6 @@ def merge_lab_data(n_file, k_file, output_name, density):
 # Function to convert .txt input files into nk-data files
 
 def conv_txt_to_lnk(input_file, output_file, density):
-    """
-    Converts a 3-column (wavelength, n, k) TXT file into a LNK file.
-    
-    Parameters:
-    - input_file: path to the source .txt file
-    - output_file: path for the resulting .lnk file (defaults to same name as input)
-    - density: density value to be placed in the second line of the header
-    """
     
     if output_file is None:
         output_file = os.path.splitext(input_file)[0] + ".lnk"
@@ -75,7 +67,7 @@ def conv_txt_to_lnk(input_file, output_file, density):
 # ------------------------------------------------------------------------------------- #
 # Plotting function for k_abs and k_scat
 
-def plot_opacity_components(file_path, label="Model"):
+def plot_opacity_components(file_path, label):
     try:
         data = np.loadtxt(file_path, skiprows=32) 
         # header might have different length and not always 32, automate this
@@ -85,15 +77,16 @@ def plot_opacity_components(file_path, label="Model"):
         k_sca = data[:, 2]
 
         plt.plot(wav, k_abs, label=r"{} ($\kappa_{{abs}}$)".format(label))
-        plt.plot(wav, k_sca, label=r"{} ($\kappa_{{scat}}$)".format(label))
+        #plt.plot(wav, k_sca, label=r"{} ($\kappa_{{scat}}$)".format(label))
 
         plt.xscale('log')
         plt.yscale('log')
         
         plt.xlabel('Wavelength ($\mu m$)', fontsize=12)
         plt.ylabel('Opacity $\kappa$ ($cm^2/g$)', fontsize=12)
-        plt.title('Opacity Components')
+        plt.title('Opacity (model vs lab data)')
         plt.grid(True, which="both", ls="-", alpha=0.3)
+        #plt.xlim(2.6, 3.6)
         plt.legend()
 
     except Exception as e:

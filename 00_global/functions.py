@@ -1,5 +1,11 @@
-# placeholder ...
-# functions used globally are put here
+# ------------------------------------------------------------------------------------- #
+# functions.py
+#
+# contains all functions relevant for the water ice project
+#
+#
+#
+# ------------------------------------------------------------------------------------- #
 
 import numpy as np
 import optool
@@ -66,28 +72,38 @@ def conv_txt_to_lnk(input_file, output_file, density):
 
 
 # ------------------------------------------------------------------------------------- #
-# Plotting function for k_abs and k_scat
+# Plotting function for k_abs and k_scat in two separate windows
+
+plt.figure(1)
 
 def plot_opacity_components(file_path, label):
     try:
-        data = np.loadtxt(file_path, skiprows=32) 
-        # header might have different length and not always 32, automate this
-          
+        data = np.loadtxt(file_path, skiprows=32)
+
         wav = data[:, 0]
         k_abs = data[:, 1]
         k_sca = data[:, 2]
 
-        plt.plot(wav, k_abs, label=r"{} ($\kappa_{{abs}}$)".format(label))
-        #plt.plot(wav, k_sca, label=r"{} ($\kappa_{{scat}}$)".format(label))
-
+        # kappa_abs
+        plt.figure(1)
+        plt.plot(wav, k_abs,
+                 label=r"{} ($\kappa_{{abs}}$)".format(label))
         plt.xscale('log')
         plt.yscale('log')
-        
-        plt.xlabel('Wavelength ($\mu m$)', fontsize=12)
-        plt.ylabel('Opacity $\kappa$ ($cm^2/g$)', fontsize=12)
-        plt.title('Opacity (model vs lab data)')
-        plt.grid(True, which="both", ls="-", alpha=0.3)
-        #plt.xlim(2.6, 3.6)
+        plt.xlabel('Wavelength ($\mu m$)')
+        plt.ylabel(r'$\kappa_{\mathrm{abs}}$ ($cm^2/g$)')
+        #plt.grid(True, which="both", ls="-", alpha=0.3)
+        plt.legend()
+
+        # kappa_scat
+        plt.figure(2)
+        plt.plot(wav, k_sca,
+                 label=r"{} ($\kappa_{{scat}}$)".format(label))
+        plt.xscale('log')
+        plt.yscale('log')
+        plt.xlabel('Wavelength ($\mu m$)')
+        plt.ylabel(r'$\kappa_{\mathrm{scat}}$ ($cm^2/g$)')
+        #plt.grid(True, which="both", ls="-", alpha=0.3)
         plt.legend()
 
     except Exception as e:

@@ -5,6 +5,7 @@ import numpy as np
 import optool
 import matplotlib.pyplot as plt
 import os
+from pathlib import Path
 
 # ------------------------------------------------------------------------------------- #
 # Function to combine the split nk data into one .lnk file for optool

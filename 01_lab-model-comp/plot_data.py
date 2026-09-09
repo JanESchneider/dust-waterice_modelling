@@ -35,9 +35,6 @@ for path, tag in zip(filedata_arr_new, labels_new):
     plot_opacity_components(path, label=fr"MgFeSiO$_4$ ({tag})")
 plt.show()'''
 
-import numpy as np
-import matplotlib.pyplot as plt
-from pathlib import Path
 
 def plot_model_comparison(model_root, lab_file_path, normalize=True):
     """

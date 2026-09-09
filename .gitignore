@@ -1,3 +1,27 @@
+# Temp-files
+*.out
+*.err
+
+# Environments and local config
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Caching
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Data output
 data/
 01_lab-model-comp/data_out/
 optool_testing/
+

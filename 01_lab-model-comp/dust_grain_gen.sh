@@ -13,31 +13,14 @@ OUTPUT_DIR="/home/jschneider/Proj_WaterIce/01_lab-model-comp/data_out/dust_model
 
 OPTOOL="/home/jschneider/optool/optool"
 
-
-# =============================================================================
-# Dust grain parameters
-# =============================================================================
-#
-# Grain sizes and wavelengths are in microns.
-#
-# optool power-law grain size distribution:
-#
-#     n(a) ∝ a^(-GRAIN_APOW)
-#
-# Corresponding optool command:
-#
-#     -a GRAIN_AMIN GRAIN_AMAX GRAIN_APOW [GRAIN_NA]
-#
-# =============================================================================
-
 # -----------------------------------------------------------------------------
 # Grain size distribution
 # -----------------------------------------------------------------------------
 
 # Grain size distribution values taken from Potapov et al. 2025 
 
-GRAIN_AMIN=0.005       # Minimum grain radius [micron]
-GRAIN_AMAX=1           # Maximum grain radius [micron]
+GRAIN_AMIN=0.001       # Minimum grain radius [micron]
+GRAIN_AMAX=0.1         # Maximum grain radius [micron]
 GRAIN_APOW=3.5         # Power-law exponent
 
 # Number of grain-size bins.
@@ -55,38 +38,11 @@ GRAIN_NA=""
 # -----------------------------------------------------------------------------
 
 WAVELENGTH_MIN=2.5       # Minimum wavelength [micron]
-WAVELENGTH_MAX=4.0      # Maximum wavelength [micron]
+WAVELENGTH_MAX=4.0       # Maximum wavelength [micron]
 N_WAVELENGTHS=1000       # Number of wavelength points
-
-# -----------------------------------------------------------------------------
-# Grain porosity
-# -----------------------------------------------------------------------------
-#
-# Porosity is the volume fraction occupied by vacuum.
-#
-# 0.0 = compact material
-# 0.25 = 25% vacuum
-#
-# Core and mantle can have different porosities.
-# -----------------------------------------------------------------------------
 
 CORE_POROSITY=0.0
 MANTLE_POROSITY=0.0
-
-# -----------------------------------------------------------------------------
-# Grain geometry / scattering method
-# -----------------------------------------------------------------------------
-#
-# Available choices used here:
-#
-#     dhs  -> Distribution of Hollow Spheres
-#     mie  -> perfect spheres
-#
-# DHS_FMAX:
-#     0.0 -> sphere
-#     0.8 -> optool default DHS irregularity
-#
-# -----------------------------------------------------------------------------
 
 GRAIN_METHOD="dhs"
 DHS_FMAX=0.8
@@ -123,7 +79,6 @@ RATIOS=(
     6.5
     7.0
     7.5
-    8.0
 )
 
 # Fraction of TOTAL water placed in the mantle.

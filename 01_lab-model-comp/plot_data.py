@@ -24,4 +24,3 @@ for path, tag in zip(filedata_arr, labels):
     # Use fr for the f-string + raw string to handle the LaTeX $ subscripts correctly
     plot_opacity_components(path, label=fr"MgFeSiO$_4$ ({tag})")
 plt.show()
-

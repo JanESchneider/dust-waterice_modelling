@@ -70,20 +70,9 @@ OPACITY_FILENAME = "dustkappa.dat"
 BUNDLE_INFO_FILENAME = "bundle_info.txt"
 COMBINED_PLOT_FILENAME = "top_ranked_models.pdf"
 
-
-# Set this to True when dustkappa.dat contains a scattering-matrix header:
-#
-#   iformat
-#   nlam
-#   nang
-#
-# Otherwise, leave it False for the normal two-line header:
-#
-#   iformat
-#   nlam
 SCATTERING_MATRIX = False
 PLOT_ALL_MODEL_FOLDERS = True # Plot every folder containing a dustkappa.dat file in the immediate input path.
-WAVELENGTH_INTERVAL = (2.6, 3.6)  # µm
+WAVELENGTH_INTERVAL = (2.5, 4.0)  # µm
 TOP_N = 3 # Number of model contenders wanted for plot.
 
 RANKING_CATEGORIES = (

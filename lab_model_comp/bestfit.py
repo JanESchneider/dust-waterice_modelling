@@ -88,7 +88,7 @@ parser.add_argument(
     "--wavelength-minimum",
     "-lmin",
     dest="wavelength_minimum",
-    default=2.85, # µm
+    default=2.5, # µm
     help=(
         "Minimum wavelength used for fitting in µm"
     ),
@@ -98,7 +98,7 @@ parser.add_argument(
     "--wavelength-maximum",
     "-lmax",
     dest="wavelength_maximum",
-    default=3.4, # µm
+    default=4.0, # µm
     help=(
         "Maximum wavelength used for fitting in µm"
     ),

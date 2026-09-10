@@ -7,9 +7,10 @@ export LC_ALL=C
 # Paths
 # =============================================================================
 
-SIL_DIR="/home/jschneider/Proj_WaterIce/data/model_data/"
-WATER_FILE="/home/jschneider/Proj_WaterIce/data/nk_data_potapov/trans_water_150.lnk"
-OUTPUT_DIR="/home/jschneider/Proj_WaterIce/01_lab-model-comp/data_out/dust_models/"
+SIL_DIR="/home/jschneider/Projects/dust_ice/data/"
+
+WATER_FILE="/home/jschneider/Projects/dust_ice/data/nk_data_potapov/trans_water_150.lnk"
+OUTPUT_DIR="/home/jschneider/Projects/dust_ice/data/dust_models"
 
 OPTOOL="/home/jschneider/optool/optool"
 
@@ -23,22 +24,14 @@ GRAIN_AMIN=0.001       # Minimum grain radius [micron]
 GRAIN_AMAX=0.1         # Maximum grain radius [micron]
 GRAIN_APOW=3.5         # Power-law exponent
 
-# Number of grain-size bins.
-#
-# Leave empty ("") to let optool determine the number automatically.
-# Otherwise, for example:
-#
-# GRAIN_NA=50
-#
-
 GRAIN_NA=""
 
 # -----------------------------------------------------------------------------
 # Wavelength grid
 # -----------------------------------------------------------------------------
 
-WAVELENGTH_MIN=2.5       # Minimum wavelength [micron]
-WAVELENGTH_MAX=4.0       # Maximum wavelength [micron]
+WAVELENGTH_MIN=1         # Minimum wavelength [micron]
+WAVELENGTH_MAX=20        # Maximum wavelength [micron]
 N_WAVELENGTHS=1000       # Number of wavelength points
 
 CORE_POROSITY=0.0
@@ -47,53 +40,16 @@ MANTLE_POROSITY=0.0
 GRAIN_METHOD="dhs"
 DHS_FMAX=0.8
 
-# -----------------------------------------------------------------------------
-# DHS -> Mie size-parameter limit
-# -----------------------------------------------------------------------------
-#
-# optool normally allows DHS calculations to very large size parameters.
-# Layered grains can make DMiLay extremely expensive or fail.
-#
-# A value around 1000 is specifically suggested in the optool documentation.
-#
-# Set to "" to disable this option and use optool's default.
-# -----------------------------------------------------------------------------
-
 XLIM=1000
-
-# =============================================================================
-# Composition grid
-# =============================================================================
 
 # Silicate : total water mass ratios.
 RATIOS=(
-    2.0
-    2.5
-    3.0
-    3.5
-    4.0
-    4.5
-    5.0
-    5.5
-    6.0
-    6.5
-    7.0
+    2.7
     7.5
 )
 
-# Fraction of TOTAL water placed in the mantle.
-#
-# 0.00 -> all water in core
-# 0.25 -> 25% mantle, 75% core
-# 0.50 -> 50% mantle, 50% core
-# 0.75 -> 75% mantle, 25% core
-# 1.00 -> all water in mantle
 MANTLE_WATER_FRACTIONS=(
     0.00
-    0.25
-    0.50
-    0.75
-    1.00
 )
 
 # =============================================================================

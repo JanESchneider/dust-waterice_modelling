@@ -74,11 +74,11 @@ def conv_txt_to_lnk(input_file, output_file, density):
 # ------------------------------------------------------------------------------------- #
 # Plotting function for k_abs and k_scat in two separate windows
 
-plt.figure(1)
+def plot_opacity_components(file_path, label, filename_out):
+    plt.figure(1)
 
-def plot_opacity_components(file_path, label):
     try:
-        data = np.loadtxt(file_path, skiprows=32)
+        data = np.loadtxt(file_path, skiprows=31)
 
         wav = data[:, 0]
         k_abs = data[:, 1]
@@ -106,5 +106,62 @@ def plot_opacity_components(file_path, label):
         #plt.grid(True, which="both", ls="-", alpha=0.3)
         plt.legend()
 
+        plt.figure(1)
+        plt.savefig(f"/home/jschneider/Projects/dust_ice/plots/{filename_out}_kappa_abs.pdf", bbox_inches="tight")
+
+        plt.figure(2)
+        plt.savefig(f"/home/jschneider/Projects/dust_ice/plots/{filename_out}_kappa_scat.pdf", bbox_inches="tight")
+
     except Exception as e:
         print(f"An error occurred: {e}")
+
+
+# ------------------------------------------------------------------------------------- #
+# Plotting function for silicate+water mix
+
+
+def plot_compare_opacity_components(input_dir):
+
+    labels = {
+        "rho_2.71_sil_0.729730_waterCore_0.270270_waterMantle_0.000000_ratio_2.7to1": "MgSiO$_3$ + H$_2$O 2.7",
+        "rho_2.71_sil_0.882353_waterCore_0.117647_waterMantle_0.000000_ratio_7.5to1": "MgSiO$_3$ + H$_2$O 7.5",
+        "rho_3.71_sil_0.729730_waterCore_0.270270_waterMantle_0.000000_ratio_2.7to1": "MgFeSiO$_4$ + H$_2$O 2.7",
+        "rho_3.71_sil_0.882353_waterCore_0.117647_waterMantle_0.000000_ratio_7.5to1": "MgFeSiO$_4$ + H$_2$O 7.5",
+    }
+
+    plt.figure(1)
+    plt.figure(2)
+
+    for file_path in sorted(input_dir.glob("**/dustkappa.dat")):
+
+        data = np.loadtxt(file_path, skiprows=32)
+
+        wav = data[:, 0]
+        k_abs = data[:, 1]
+        k_sca = data[:, 2]
+
+        label = labels[file_path.parent.name]
+
+        plt.figure(1)
+        plt.plot(wav, k_abs, label=label)
+
+        plt.figure(2)
+        plt.plot(wav, k_sca, label=label)
+
+    plt.figure(1)
+    plt.xscale("log")
+    plt.yscale("log")
+    plt.xlabel("Wavelength ($\\mu$m)")
+    plt.ylabel(r"$\kappa_{\mathrm{abs}}$ ($cm^2/g$)")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig("/home/jschneider/Projects/dust_ice/plots/kappa_abs_mixed.pdf", bbox_inches="tight")
+
+    plt.figure(2)
+    plt.yscale("log")
+    plt.xscale("log")
+    plt.xlabel("Wavelength ($\\mu$m)")
+    plt.ylabel(r"$\kappa_{\mathrm{scat}}$ ($cm^2/g$)")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig("/home/jschneider/Projects/dust_ice/plots/kappa_scat_mixed.pdf", bbox_inches="tight")

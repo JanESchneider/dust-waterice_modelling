@@ -14,9 +14,9 @@ from pathlib import Path
 
 file_data_lab = "/home/jschneider/Projects/dust_ice/data/dust_labdata/dustkappa.dat"
 
-plot_compare_opacity_components(input_dir=Path("/home/jschneider/Projects/dust_ice/data/dust_models"))
+#plot_compare_opacity_components(input_dir=Path("/home/jschneider/Projects/dust_ice/data/dust_models"))
 
-#plot_opacity_components(file_data_lab, label=fr"MgFeSiO$_4$", filename_out="MgFeSiO4")
+plot_opacity_components(file_data_lab, label=fr"MgSiO$_3$", filename_out="MgSiO3")
 plt.show()
 
 

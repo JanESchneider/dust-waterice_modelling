@@ -44,7 +44,7 @@ XLIM=1000
 
 # Silicate : total water mass ratios.
 RATIOS=(
-    2.5
+    2.7
     4.5
     7.5
 )

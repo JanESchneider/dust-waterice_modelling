@@ -14,8 +14,6 @@ import matplotlib.pyplot as plt
 import os
 from pathlib import Path
 
-
-
 # ------------------------------------------------------------------------------------- #
 # Function to combine the split nk data into one .lnk file for optool
 
@@ -184,10 +182,10 @@ def plot_opacity_components(file_path, label, filename_out):
 def plot_compare_opacity_components_all(input_dir):
 
     labels = {
-        #"rho_2.71_sil_0.714286_waterCore_0.285714_waterMantle_0.000000_ratio_2.5to1": "MgSiO$_3$ + H$_2$O 2.5",
+        #"rho_2.71_sil_0.714286_waterCore_0.285714_waterMantle_0.000000_ratio_2.7to1": "MgSiO$_3$ + H$_2$O 2.7",
         #"rho_2.71_sil_0.818182_waterCore_0.181818_waterMantle_0.000000_ratio_4.5to1": "MgSiO$_3$ + H$_2$O 4.5",
         #"rho_2.71_sil_0.882353_waterCore_0.117647_waterMantle_0.000000_ratio_7.5to1": "MgSiO$_3$ + H$_2$O 7.5",
-        "rho_3.71_sil_0.714286_waterCore_0.285714_waterMantle_0.000000_ratio_2.5to1": "MgFeSiO$_4$ + H$_2$O 2.5",
+        "rho_3.71_sil_0.714286_waterCore_0.285714_waterMantle_0.000000_ratio_2.7to1": "MgFeSiO$_4$ + H$_2$O 2.7",
         "rho_3.71_sil_0.818182_waterCore_0.181818_waterMantle_0.000000_ratio_4.5to1": "MgFeSiO$_4$ + H$_2$O 4.5",
         "rho_3.71_sil_0.882353_waterCore_0.117647_waterMantle_0.000000_ratio_7.5to1": "MgFeSiO$_4$ + H$_2$O 7.5",
     }
@@ -236,10 +234,10 @@ def plot_compare_opacity_components_all(input_dir):
 def plot_compare_opacity_components(input_dir, silicate_density):
 
     labels = {
-        "rho_2.71_sil_0.714286_waterCore_0.285714_waterMantle_0.000000_ratio_2.5to1": "MgSiO$_3$ + H$_2$O 2.5",
+        "rho_2.71_sil_0.729730_waterCore_0.270270_waterMantle_0.000000_ratio_2.7to1": "MgSiO$_3$ + H$_2$O 2.7",
         "rho_2.71_sil_0.818182_waterCore_0.181818_waterMantle_0.000000_ratio_4.5to1": "MgSiO$_3$ + H$_2$O 4.5",
         "rho_2.71_sil_0.882353_waterCore_0.117647_waterMantle_0.000000_ratio_7.5to1": "MgSiO$_3$ + H$_2$O 7.5",
-        "rho_3.71_sil_0.714286_waterCore_0.285714_waterMantle_0.000000_ratio_2.5to1": "MgFeSiO$_4$ + H$_2$O 2.5",
+        "rho_3.71_sil_0.729730_waterCore_0.270270_waterMantle_0.000000_ratio_2.7to1": "MgFeSiO$_4$ + H$_2$O 2.7",
         "rho_3.71_sil_0.818182_waterCore_0.181818_waterMantle_0.000000_ratio_4.5to1": "MgFeSiO$_4$ + H$_2$O 4.5",
         "rho_3.71_sil_0.882353_waterCore_0.117647_waterMantle_0.000000_ratio_7.5to1": "MgFeSiO$_4$ + H$_2$O 7.5",
     }
@@ -273,7 +271,7 @@ def plot_compare_opacity_components(input_dir, silicate_density):
     plt.legend()
     plt.tight_layout()
     plt.savefig(
-        "/home/jschneider/Projects/dust_ice/plots/MgSiO3_kappa_abs_mixed.pdf",
+        "/home/jschneider/Projects/dust_ice/plots/MgFeSiO4_kappa_abs_mixed.pdf",
         bbox_inches="tight"
     )
 
@@ -285,7 +283,7 @@ def plot_compare_opacity_components(input_dir, silicate_density):
     plt.legend()
     plt.tight_layout()
     plt.savefig(
-        "/home/jschneider/Projects/dust_ice/plots/MgSiO3_kappa_scat_mixed.pdf",
+        "/home/jschneider/Projects/dust_ice/plots/MgFeSiO4_kappa_scat_mixed.pdf",
         bbox_inches="tight"
     )
 
@@ -326,26 +324,6 @@ if __name__ == "__main__":
         help="Material density"
     )
 
-    parser.add_argument(
-        "-fp",
-        "--file_path",
-        required=True,
-        help="Input directory"
-    )
-
-    parser.add_argument(
-        "-l",
-        "--label",
-        required=True,
-        help="label string"
-    )
-
-    parser.add_argument(
-        "-fo",
-        "--filename_out",
-        required=True,
-        help="output file name tag"
-    )
 
     args = parser.parse_args()
 
@@ -353,10 +331,4 @@ if __name__ == "__main__":
     args.input_file,
     args.output_file,
     args.density
-    )
-
-    plot_compare_opacity_components(
-    args.file_path,
-    args.label,
-    args.filename_out        
     )

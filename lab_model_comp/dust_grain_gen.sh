@@ -7,7 +7,7 @@ export LC_ALL=C
 # Paths
 # =============================================================================
 
-SIL_DIR="/home/jschneider/Projects/dust_ice/data/"
+SIL_DIR="/home/jschneider/Projects/dust_ice/data"
 
 WATER_FILE="/home/jschneider/Projects/dust_ice/data/nk_data_potapov/trans_water_150.lnk"
 OUTPUT_DIR="/home/jschneider/Projects/dust_ice/data/dust_models"
@@ -44,7 +44,8 @@ XLIM=1000
 
 # Silicate : total water mass ratios.
 RATIOS=(
-    2.7
+    2.5
+    4.5
     7.5
 )
 

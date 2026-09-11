@@ -10,9 +10,9 @@ WAVELENGTH_MIN=1
 WAVELENGTH_MAX=20
 N_WAVELENGTHS=1000
 
-LAB_NK_FILE="/home/jschneider/Projects/dust_ice/data/data_jena-db_MgSiO3.lnk"
-#LAB_NK_FILE="/home/jschneider/Projects/dust_ice/data/nk_data_potapov/trans_water_150.lnk" # pure water ice
-LAB_OUTPUT_DIR="/home/jschneider/Projects/dust_ice/data/dust_labdata"
+#LAB_NK_FILE="/home/jschneider/Projects/dust_ice/data/data_jena-db_MgFeSiO4.lnk"
+LAB_NK_FILE="/home/jschneider/Projects/dust_ice/data/nk_data_potapov/MgSiO3_H2O_150K_7_5/MgSiO3_H2O_150K_7_5.lnk"
+LAB_OUTPUT_DIR="/home/jschneider/Projects/dust_ice/data/dust_potapov/MgSiO3_H2O_150K_7_5"
 
 OPTOOL="/home/jschneider/optool/optool"
 
